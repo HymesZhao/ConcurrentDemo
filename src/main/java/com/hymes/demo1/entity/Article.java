@@ -1,7 +1,5 @@
 package com.hymes.demo1.entity;
 
-import lombok.Data;
-
 import javax.persistence.*;
 
 @Table(name = "tbl_article")
@@ -12,7 +10,8 @@ public class Article {
     private Long id;
     private String title;
     private Long commentCount;
-//    @Version
+
+    //    @Version
     private Long version; //使用Jpa乐观锁时使用@version注解
 
     public Long getId() {

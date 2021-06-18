@@ -24,6 +24,12 @@ public class CommentServiceImpl implements CommentService {
     @Autowired
     private CommentRepository commentRepository;
 
+    /**
+     * 文章评论没有锁
+     *
+     * @param articleId 文章的id
+     * @param content   内容
+     */
     @Transactional(rollbackOn = Exception.class)
     @Override
     public void postCommentNoLock(Long articleId, String content) {
@@ -37,7 +43,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    @Transactional(rollbackOn =Exception.class)
+    @Transactional(rollbackOn = Exception.class)
     public void postCommentWithSqlPessimisticLock(Long articleId, String content) {
         // 然后把CommentService中使用的查询方法由原来的findById改为我们自定义的方法
         Article article = articleRepository.findArticleWithSqlPessimisticLock(articleId);
@@ -51,7 +57,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    @Transactional(rollbackOn =Exception.class)
+    @Transactional(rollbackOn = Exception.class)
     public void postCommentWithJpaPessimisticLock(Long articleId, String content) {
         // 同样的只要在CommentService里把查询方法改为findArticleWithJpaPessimisticLock()
         Article article = articleRepository.findArticleWithJpaPessimisticLock(articleId);

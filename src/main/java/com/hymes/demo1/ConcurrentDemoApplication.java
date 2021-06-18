@@ -4,6 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * @author HymesZhao
+ */
 @SpringBootApplication
 @EnableSwagger2
 public class ConcurrentDemoApplication {
@@ -20,7 +23,6 @@ public class ConcurrentDemoApplication {
     // 第五次提交
 
     // 第六次提交
-
 
 
 }
